@@ -104,8 +104,10 @@ AUTO_INCREMENT=1;
 		doCopyCode() {
 			try {
 				let source = this.source;
+				source = (source.charAt(0) + "").toUpperCase() + source.substring(1);
 				let sourceText = (source.charAt(0) + "").toLowerCase() + source.substring(1);
 				let destination = this.destination;
+				destination = (destination.charAt(0) + "").toUpperCase() + destination.substring(1);
 				let destinationText = (destination.charAt(0) + "").toLowerCase() + destination.substring(1);
 				this.copyCode.output = this.copyCode.input //
 					.replaceAll(source, destination) //
@@ -140,6 +142,7 @@ AUTO_INCREMENT=1;
 		doPrettify() {
 			try {
 				this.prettify.output = JSON.stringify(JSON.parse(this.prettify.input), null, 4);
+				navigator.clipboard.writeText(this.prettify.output);
 				this.snackbar = { value: true, text: "Done" };
 			} catch (exception) {
 				this.snackbar = { value: true, text: "Error" };
