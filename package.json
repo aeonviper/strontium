@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "vite build --base=/strontium/",
+    "build": "vite build",
+	"build-strontium": "vite build --base=/strontium/",
     "serve": "vite --host",
     "preview": "vite preview"
   },
